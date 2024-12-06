@@ -4,6 +4,7 @@
     box-sizing: border-box;
     background-color: #212121;
     color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body,
@@ -41,7 +42,7 @@ html {
 
 @media (min-width:768px) and (max-width:1024px) {
     .acc-page {
-        border: 2px solid #ff0;
+        /* border: 1px solid #ff0; */
         height: 80vh;
         width: 70vw;
         background-color: lavender;
@@ -51,7 +52,7 @@ html {
         display: flex;
         position: relative;
         justify-content: space-between;
-        border: 1px solid green;
+        /* border: 1px solid green; */
         height: 25px;
         width: 100%;
         background-color: #000;
@@ -73,9 +74,11 @@ html {
 
     .download {
         width: 50%;
+        background-color: #000;
     }
-
+    
     .delete {
+        background-color: #000;
         display: flex;
         position: relative;
         justify-content: center;
@@ -90,7 +93,7 @@ html {
     }
 
     .content-body {
-        border: 1px solid red;
+        /* border: 1px solid red; */
         height: calc(80vh - 25px - 2px);
         width: 100%;
     }
@@ -104,6 +107,35 @@ html {
         width: 15%;
     }
 
+    .textarea-container {
+        border: 2px solid rgba(255, 255, 255, .2);
+        width: 100%;
+        min-height: 26px;
+    }
+
+    .textarea-container #prtclr {
+        height: 20px;
+        width: 70%;
+        position: relative;
+        resize: none;
+        outline: none;
+        border: none;
+    }
+
+    /* .textarea-containe #cya , #pya{
+        width: calc((100% - 70%) / 2);
+        height: 20px;
+    } */
+    #cya,
+    #pya {
+        width: calc((100% - 70% - 8px) / 2);
+        height: 20px;
+        resize: none;
+        outline: none;
+        border: none;
+
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -112,7 +144,7 @@ html {
     table,
     th,
     td {
-        border: 1px solid #f00;
+        /* border: 1px solid #f00; */
         background-color: lavender;
         color: #000;
 
