@@ -47,6 +47,63 @@ html {
         background-color: lavender;
     }
 
+    .heading {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        border: 1px solid green;
+        height: 25px;
+        width: 100%;
+        background-color: #000;
+    }
+
+    .head-btn-container {
+        /* download btn and Delete btn */
+        margin-right: 10px;
+        display: flex;
+        position: relative;
+        width: 60px;
+        min-width: 60px;
+        height: 100%;
+    }
+
+    .heading:hover {
+        cursor: pointer;
+    }
+
+    .download {
+        width: 50%;
+    }
+
+    .delete {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    .delete:hover {
+        background-color: gray;
+        color: #000;
+
+    }
+
+    .content-body {
+        border: 1px solid red;
+        height: calc(80vh - 25px - 2px);
+        width: 100%;
+    }
+
+    .content-heading table tr th:first-child {
+        width: 70%;
+    }
+
+    .content-heading table tr>th:nth-child(2),
+    .content-heading table tr>th:nth-child(3) {
+        width: 15%;
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -66,7 +123,8 @@ html {
         background-color: #313131;
         color: #fff;
     }
-    #myText{
+
+    #myText {
         background: transparent;
         color: #000;
         height: 100%;
@@ -75,21 +133,8 @@ html {
         border: none;
         outline: none;
     }
-    .srno{
-        width: 30px;
-    }
-    .particular{
-width: 400px;
-    }
-    .cya{
-        min-width: 50px;
-    }
-    .pya{
-        
-        min-width: 50px;
-    }
+
+
 }
 
-@media (min-width:1025) and (max-width:1440px) {
-    
-}
+@media (min-width:1025) and (max-width:1440px) {}
