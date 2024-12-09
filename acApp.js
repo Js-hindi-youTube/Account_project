@@ -61,7 +61,11 @@ function addNotes(Particular = "", cya = "", pya = "") {
                 </div>
             </div>
     `;
+
     document.getElementById("container").append(accPage);
+
+    //Sent whole component which about to be renderd
+    handleTextarea(accPage);
 
     accPage.querySelector(".delete").addEventListener(
         "click",
@@ -80,20 +84,22 @@ function addNotes(Particular = "", cya = "", pya = "") {
 addPage.addEventListener("click", function () {
     addNotes();
 
-    const textArea = document.querySelectorAll("textarea");
+
+});
+
+function handleTextarea(container) {
+    const textArea = container.querySelectorAll("textarea");
 
     let activeTextarea = null;
-    
     textArea.forEach((area, index) => {
         area.addEventListener("focus", function (event) {
-           activeTextarea = event.target;
-           
+            activeTextarea = event.target;
         });
         area.addEventListener("keydown", (event) => {
             if (activeTextarea === event.target && event.key === "Enter") {
                 event.preventDefault();
-                console.log(area, index)
+                textArea[index + 1].focus();
             }
         })
     })
-});
+};
