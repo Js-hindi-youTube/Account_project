@@ -52,6 +52,7 @@ function addNotes(Particular = "", cya = "", pya = "") {
                         <p style="margin-left: 20px;">Cash flow from Operating Activity</p>
                     </div>
                     <div class="textarea-container">
+                    
                         <div class="serial-num">
                             <textarea id="prtclr" class="myData">${Particular}</textarea>
                             <textarea id="cya" class="myData">${cya}</textarea>
