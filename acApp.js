@@ -54,9 +54,9 @@ function addNotes(Particular = "", cya = "", pya = "") {
                     <div class="textarea-container">
                     
                         <div class="serial-num">
-                            <textarea id="prtclr" class="myData">${Particular}</textarea>
-                            <textarea id="cya" class="myData">${cya}</textarea>
-                            <textarea id="pya" class="myData">${pya}</textarea>
+                            <textarea class="myData prtclr">${Particular}</textarea>
+                            <textarea class="myData cya">${cya}</textarea>
+                            <textarea class="myData pya">${pya}</textarea>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,30 @@ function handleTextarea(container) {
             if (activeTextarea === event.target && event.key === "Enter") {
                 event.preventDefault();
                 textArea[index + 1].focus();
+                if (textArea[1].value !== "") {
+                    textArea[2].blur();
+                    let valFormcnl = createNewLine(container);
+                    valFormcnl.querySelectorAll(".myData").forEach(function(datas, index2) {
+                        datas.addEventListener("keydown", (dataKeyName) => {
+                            if (dataKeyName.key === "Enter") {
+                                // stop my work here try to get className from datas
+                            }
+                        })
+                    })
+                }
             }
         })
     })
 };
+
+function createNewLine(pageData) {
+    const nextLine = document.createElement("div");
+    nextLine.setAttribute("className", "serial-num-2");
+    nextLine.innerHTML = `
+            <textarea class="myData prtclr"></textarea>
+            <textarea class="myData cya"></textarea>
+            <textarea class="myData pya"></textarea>
+    `
+    pageData.querySelector(".textarea-container").append(nextLine);
+    return nextLine;
+}

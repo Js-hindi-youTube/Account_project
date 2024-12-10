@@ -121,7 +121,7 @@ html {
         min-height: 26px;
     }
 
-    .textarea-container #prtclr {
+    .textarea-container .prtclr {
         height: 20px;
         width: 70%;
         position: relative;
@@ -132,8 +132,8 @@ html {
         color: #313131;
     }
 
-    #cya,
-    #pya {
+    .cya,
+    .pya {
         width: calc((100% - 70% - 8px) / 2);
         height: 20px;
         resize: none;
@@ -170,8 +170,8 @@ html {
         height: 100%;
         width: 100%;
         resize: none;
-        border: none;
-        outline: none;
+        border: none; 
+         outline: none;
     }
 
 
