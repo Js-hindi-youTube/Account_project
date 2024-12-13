@@ -19,7 +19,7 @@ const saveNote = () => {
 
             addNotes(statement.slice(1, -1), cAmount.slice(1, -1), pAmount.slice(1, -1));
         } else {
-            
+
         }
     }
 )();
@@ -107,9 +107,11 @@ function handleTextarea(container) {
                 event.preventDefault();
                 console.log(textArea[index], index);
                 textArea[++index].focus();
-                
+
+                // Start work from here hint: childElementCount
+
                 if (area.classList.contains("cya") && area.value !== "") {
-                    
+
                     let clone = area.parentNode.cloneNode();
 
                     const structure = `
