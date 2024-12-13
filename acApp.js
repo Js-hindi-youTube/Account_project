@@ -19,46 +19,52 @@ const saveNote = () => {
 
             addNotes(statement.slice(1, -1), cAmount.slice(1, -1), pAmount.slice(1, -1));
         } else {
-            alert("Add Page");
+            
         }
     }
 )();
 
-function addNotes(Particular = "", cya = "", pya = "") {
+function addNotes(particular = "", cya = "", pya = "") {
     const accPage = document.createElement("div");
     accPage.classList.add("acc-page");
 
     accPage.innerHTML = `
-    <div class="heading">
+   
+            <div class="heading">
                 <span>Cash flow Statment - 1</span>
                 <div class="head-btn-container">
                     <div class="download">⬇️</div>
                     <div class="delete">X</div>
                 </div>
             </div>
+
+            <div class="content-heading">
+                <table>
+                    <tr>
+                        <th>Particular</th>
+                        <th>current yrs(₹)</th>
+                        <th>previous yrs(₹)</th>
+                    </tr>
+                </table>
+            </div>
+
             <div class="content-body">
-                <div class="content-heading">
-                    <table>
-                        <tr>
-                            <th>Particular</th>
-                            <th>current yrs(₹)</th>
-                            <th>previous yrs(₹)</th>
-                        </tr>
-                    </table>
-                </div>
                 <div class="main-content-body" style="padding: 5px;">
                     <div style="display: flex; font-weight: 700;">
                         <p>I.</p>
                         <p style="margin-left: 20px;">Cash flow from Operating Activity</p>
                     </div>
+
                     <div class="textarea-container">
-                    
+
                         <div class="serial-num">
-                            <textarea class="myData prtclr">${Particular}</textarea>
+                            <textarea class="myData prtclr">${particular}</textarea>
                             <textarea class="myData cya">${cya}</textarea>
                             <textarea class="myData pya">${pya}</textarea>
                         </div>
+
                     </div>
+
                 </div>
             </div>
     `;
@@ -99,31 +105,24 @@ function handleTextarea(container) {
         area.addEventListener("keydown", (event) => {
             if (activeTextarea === event.target && event.key === "Enter") {
                 event.preventDefault();
-                textArea[index + 1].focus();
-                if (textArea[1].value !== "") {
-                    textArea[2].blur();
-                    let valFormcnl = createNewLine(container);
-                    valFormcnl.querySelectorAll(".myData").forEach(function(datas, index2) {
-                        datas.addEventListener("keydown", (dataKeyName) => {
-                            if (dataKeyName.key === "Enter") {
-                                // stop my work here try to get className from datas
-                            }
-                        })
-                    })
+                console.log(textArea[index], index);
+                textArea[++index].focus();
+                
+                if (area.classList.contains("cya") && area.value !== "") {
+                    
+                    let clone = area.parentNode.cloneNode();
+
+                    const structure = `
+                 <textarea class="myData prtclr"></textarea>
+                        <textarea class="myData cya"></textarea>
+                        <textarea class="myData pya"></textarea>
+                 `
+                    clone.innerHTML = structure;
+                    container.querySelector(".textarea-container").append(clone);
+
+
                 }
             }
         })
     })
 };
-
-function createNewLine(pageData) {
-    const nextLine = document.createElement("div");
-    nextLine.setAttribute("className", "serial-num-2");
-    nextLine.innerHTML = `
-            <textarea class="myData prtclr"></textarea>
-            <textarea class="myData cya"></textarea>
-            <textarea class="myData pya"></textarea>
-    `
-    pageData.querySelector(".textarea-container").append(nextLine);
-    return nextLine;
-}
